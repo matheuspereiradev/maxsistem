@@ -1,0 +1,26 @@
+{
+  "name": "max-support",
+  "version": "1.0.0",
+  "description": "a support system focused on software development process",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheuspereiradev/maxsistem.git"
+  },
+  "keywords": [
+    "support",
+    "max",
+    "development",
+    "software",
+    "manager"
+  ],
+  "author": "matheuspereiradev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheuspereiradev/maxsistem/issues"
+  },
+  "homepage": "https://github.com/matheuspereiradev/maxsistem#readme"
+}
