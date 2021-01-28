@@ -6,6 +6,10 @@
     grid-template-columns: 17% 83%;
 }
 
+a{
+    text-decoration: none; 
+}
+
 /*menu lateral*/
 #menu {
     list-style-type: none;
@@ -25,7 +29,6 @@
     display: block;
     position: relative;
     z-index: 2; 
-     
 }
 
 
