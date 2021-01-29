@@ -1,11 +1,14 @@
 import styled from 'styled-components'
 
 export const TopBar = styled.div`
+
+
 .nav {
     height: 46px;
     width: 100%;
     background-color: #d7dde4;
     position: relative;
+    
 }
 
 .nav > .nav-header {
@@ -21,6 +24,7 @@ export const TopBar = styled.div`
 
 .nav > .nav-btn {
     display: none;
+    
 }
 
 .nav > .nav-links {

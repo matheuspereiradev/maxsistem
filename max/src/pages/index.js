@@ -23,6 +23,14 @@ export default function IndexPage(){
                       <button className="btn red-button margin-left-5">clique</button>
                       <button className="btn blue-button margin-left-5">clique</button>
                       <button className="btn yellow-button margin-left-5">clique</button>
+                      <div class="dropdown margin-left-5">
+                        <button class="btn green-button dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                      </div> 
                     </div>
                 </div>
                 <div id="footer" className="align-center">
