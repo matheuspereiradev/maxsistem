@@ -24,6 +24,7 @@ a{
     left: 0;
     height: 100%;
     overflow-y: auto;
+    overflow-x:hidden;
 }
 
 #menu li {
@@ -38,6 +39,7 @@ a{
     color:#fefefe;
     padding-top: 13px;
     padding-bottom: 13px;
+    font-weight: 600;
 }
 
 #menu li .item:active {
@@ -62,13 +64,14 @@ a{
 
 #menu li.headerTitle {
     width: 100%;
-    height: 46px;
+    height: 26px;
     background-color: #384655;
     color: #fff;
-    align-items:center;
-    justify-content:center;
     font-size:25px;
     font-weight:700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 12px;
 }
 
 #menu li.legend {

@@ -9,7 +9,8 @@ export default function IndexPage(){
  
     return(
         <div className="page">
-        <LeftMenu/> 
+        <LeftMenu/>
+         
         <div>
             <TopBar/>
               
@@ -18,10 +19,10 @@ export default function IndexPage(){
                     <div className="content-body">
                       <h1>Bem vindo! Matheus</h1>
                       <hr/>
-                      <button className="btn green-button">clique</button>
-                      <button className="btn red-button">clique</button>
-                      <button className="btn blue-button">clique</button>
-                      <button className="btn yellow-button">clique</button>
+                      <button className="btn green-button margin-left-5">clique</button>
+                      <button className="btn red-button margin-left-5">clique</button>
+                      <button className="btn blue-button margin-left-5">clique</button>
+                      <button className="btn yellow-button margin-left-5">clique</button>
                     </div>
                 </div>
                 <div id="footer" className="align-center">
