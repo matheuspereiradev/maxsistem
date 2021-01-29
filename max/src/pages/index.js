@@ -18,6 +18,10 @@ export default function IndexPage(){
                     <div className="content-body">
                       <h1>Bem vindo! Matheus</h1>
                       <hr/>
+                      <button className="btn green-button">clique</button>
+                      <button className="btn red-button">clique</button>
+                      <button className="btn blue-button">clique</button>
+                      <button className="btn yellow-button">clique</button>
                     </div>
                 </div>
                 <div id="footer" className="align-center">

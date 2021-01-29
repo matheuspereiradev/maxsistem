@@ -36,6 +36,8 @@ a{
 #menu li .item:hover {
     background-color:#40505f;
     color:#fefefe;
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
 
 #menu li .item:active {
@@ -48,14 +50,14 @@ a{
 
 #menu li .special {
     position: relative;
-    background-color: #55b6d6;
-    display: block; padding: 7px 15px;cursor: pointer;color: rgb(255, 255, 255);
+    background-color: #50acca;
+    display: block; padding: 10px 15px;cursor: pointer;color: rgb(255, 255, 255);
 }
 
 #menu li .special:hover {
     position: relative;
     background-color: #349ec2;
-    display: block; padding: 7px 15px;cursor: pointer;color: rgb(255, 255, 255);
+    display: block; padding: 10px 15px;cursor: pointer;color: rgb(255, 255, 255);
 }
 
 #menu li.headerTitle {
@@ -192,17 +194,17 @@ table th {
 }
 
 .green-button{
-    background: #25BA6B;
+    background: #52a772;
     color: #fff;
 }
 
 .green-button:hover{
-    background: #1e9656;
+    background: #247844;
     color: #fff;
 }
 
 .red-button{
-    background: #d12c2c;
+    background: #CB3430;
     color: #fff;
 }
 
@@ -212,12 +214,22 @@ table th {
 }
 
 .blue-button{
-    background: #426bf1;
+    background: #4782CD;
     color: #fff;
 }
 
 .blue-button:hover{
     background: #2c4fc2;
+    color: #fff;
+}
+
+.yellow-button{
+    background: #D9BF2B;
+    color: #fff;
+}
+
+.yellow-button:hover{
+    background: #CC9733;
     color: #fff;
 }
 
@@ -466,7 +478,6 @@ select{
     margin-right: 0.25em;
     /* 4px */
 }
-
 
 /* style 1 */
 
