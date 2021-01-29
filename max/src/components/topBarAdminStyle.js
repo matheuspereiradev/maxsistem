@@ -4,7 +4,7 @@ export const TopBar = styled.div`
 .nav {
     height: 46px;
     width: 100%;
-    background-color: #6D00AB;
+    background-color: #d7dde4;
     position: relative;
 }
 
@@ -33,11 +33,12 @@ export const TopBar = styled.div`
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
-    color: #efefef;
+    color:#4c5e70;
 }
 
 .nav > .nav-links > a:hover {
     background-color: rgba(0, 0, 0, 0.3);
+    color:#fff;
 }
 
 .nav > #nav-check {

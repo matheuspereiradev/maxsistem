@@ -16,34 +16,12 @@ export default function IndexPage(){
               <div className="main">
                   <div className="content">
                     <div className="content-body">
-                    <button className="btn btn-block green-button">cadastrar novo</button>
-                    <table>
-                    <caption>Produtos</caption>
-                    <thead>
-                        <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <td data-label="nome">NOME</td>
-                      <td data-label="preço">0,00</td>
-                      <td data-label="quantidade">0</td>
-                      <td data-label="categoria">NENHUMA</td>
-                      <td data-label="editar"><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></td>
-                      <td data-label="excluir"><button className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
-                          
-                    </tbody>
-                  </table>    
-                    
+                      <h1>Bem vindo! Matheus</h1>
+                      <hr/>
                     </div>
                 </div>
-                <div id="footer">
-                    <span>&copy; CSS ROCKS</span> 
+                <div id="footer" className="align-center">
+                    <span>&copy; Projeto MAX - Management Extreme</span> 
                   </div>
               </div>
         </div>           
