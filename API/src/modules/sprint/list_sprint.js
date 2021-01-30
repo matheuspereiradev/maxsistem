@@ -14,6 +14,22 @@ routesSprint.get('/all',async (req,res)=>{
     }
 });
 
+routesSprint.post('/register',async (req,res)=>{
+    try{
+        const {titulo,objetivo,dataInicio,dataFim} = req.body;
+        const sprint = {
+            "dsTitulo":titulo,
+            "dtInicio":dataInicio,
+            "dtFim":dataFim,
+            "dsObjetivo":objetivo
+        };
+        await knex('sprint').insert(sprint);
+        return res.status(200).json({"success_mensage":"sucess insert"});
+    }catch(erro){
+        return res.status(500).json({"error_mensage":erro});
+    }
+});
+
 /*
 routesSprint.get('/find/:id',async (req,res)=>{
     

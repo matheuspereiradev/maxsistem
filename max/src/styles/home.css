@@ -398,6 +398,12 @@ select{
     width: 10%;
     padding: 3px;
 }
+
+.col-15{
+    width: 15%;
+    padding: 3px;
+}
+
 .col-20{
     width: 20%;
     padding: 3px;
@@ -444,7 +450,6 @@ select{
 /*configurações de formulario*/
 
 .input-text{
-    
     height: 30px;
     width: 100%;
     margin-top: 5px;
@@ -455,14 +460,30 @@ select{
     color: #121414;
 }
 
+.input-date{
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 5px;
+    background: #F5F8FA;
+    border: 1px solid #999497;
+    border-radius: 4px;
+    max-width: 200px;
+    outline: none;
+    color: #121414;
+    font-family: "Open Sans", sans-serif;
+}
+
 .text-area{
     width: 99%;
     background: #F5F8FA;
     border: 1px solid #999497;
     border-radius: 5px;
     padding: 5px;
+    margin-top: 5px;
     outline: none;
     color: #000000;
+    font-family: "Open Sans", sans-serif;
 }
 
 .select-box{
