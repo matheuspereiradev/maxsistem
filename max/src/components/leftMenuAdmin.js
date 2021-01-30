@@ -5,18 +5,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/home.css'
-//import {LeftMenu} from './leftMenuAdminStyle'
 
 export default function (props){
     return(
         <>
             <div>
                 <ul id="menu">
-                    <li className="headerTitle">VComerce</li>
+                    <li className="headerTitle">PROJETO MAX</li>
                     <li className="legend">Opções:</li>  
-                    <li><Link to="/admin/produto"><div className="item">Produtos</div></Link></li>
-                    <li><Link to="/admin/categorias"><div className="item">Categorias</div></Link></li>
-                    
+                    <li><Link to="/"><div className="item special">Home</div></Link></li>
+                    <li><Link to="/sprint"><div className="item">Sprints</div></Link></li>
+                    <li><div className="item">Opção 2</div></li>
+                    <li><div className="item">Opção 3</div></li>
+                    <li><div className="item">Opção 4</div></li>
                 </ul>
             </div>
         </>
