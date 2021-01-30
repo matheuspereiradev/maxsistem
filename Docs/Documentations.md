@@ -94,3 +94,21 @@ RESPONSE 500
   error_mensage
 }
 ```
+
+### **BASEURL/sprint/delete/:id**
+```
+REQUEST
+{
+
+}
+
+RESPONSE 200
+{
+  success_mensage
+}
+
+RESPONSE 500
+{
+  error_mensage
+}
+```

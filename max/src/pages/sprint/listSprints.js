@@ -18,15 +18,15 @@ export default function ListSprints(){
     },[])
   
     function excluirSprint(id){
-      /*try{
-        api.delete(`categories/delete/${id}`).then(res=>{
-          setCategoria(categoria.filter((cat)=>{
-            return cat.id !== id
+      try{
+        api.delete(`sprint/delete/${id}`).then(res=>{
+          setSprints(sprints.filter((sprints)=>{
+            return sprints.id !== id
           }))
         })
       }catch(e){
-        alert(e)
-      }*/
+        alert(e) //TODO colocar mensagem amigavel 
+      }
     }
  
     return(
@@ -64,7 +64,7 @@ export default function ListSprints(){
                                         <td data-label="descrição">{sprint.status}</td>
                                         <td data-label="Associar backlog"><button className="btn btn-block btn-sm yellow-button"><FaThumbtack/> Associar</button></td>
                                         <td data-label="editar"><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></td>
-                                        <td data-label="excluir"><button className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
+                                        <td data-label="excluir"><button onClick={()=>{excluirSprint(sprint.id)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
                             })

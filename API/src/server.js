@@ -6,7 +6,7 @@ const path =require('path')
 const app = express();
 
 const routerIndex = require('./modules/index')
-const routerSprint = require('./modules/sprint/list_sprint')
+const routerSprint = require('./modules/sprint')
 
 app.use(bodyParser.json()); 
 
