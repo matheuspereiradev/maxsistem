@@ -5,13 +5,13 @@ a support system focused on software development process
 
 # Structure
 
-|->Project
-|
-|-->max  <the project front-end react>
-|
-|-->Docs <Documentation Use Cases, DER, Routes Docuemntation...>
-|
-|-->API <API>
+|->Project </br>
+|</br>
+|-->max  <the project front-end react></br>
+|</br>
+|-->Docs <Documentation Use Cases, DER, Routes Docuemntation...></br>
+|</br>
+|-->API <API></br>
 
 
 ## Scripts
