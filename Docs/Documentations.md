@@ -62,6 +62,24 @@ REQUEST
 }
 
 RESPONSE
+[{
+  id,
+  titulo
+  inicio
+  terminoPrevisto
+  objetivo
+  status (ABERTA||FINALIZADA)
+  dataTermino
+}]
+```
+### **BASEURL/sprint/find/:id**
+```
+REQUEST
+{
+  
+}
+
+RESPONSE
 {
   id,
   titulo
@@ -70,7 +88,6 @@ RESPONSE
   objetivo
   status (ABERTA||FINALIZADA)
   dataTermino
-  usuarioFinalizou
 }
 ```
 
