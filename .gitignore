@@ -2,3 +2,4 @@
 Front/node_modules/*
 API/node_modules/*
 .eslintcache
+.vscode
