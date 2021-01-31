@@ -6,6 +6,7 @@ import Footer from '../../components/footer'
 import api from '../../services/api'
 import { useParams } from 'react-router-dom'
 import { FaSave } from 'react-icons/fa'
+import dates from '../../utils/dates'
 
 export default function RegisterSprint(){
 
@@ -15,6 +16,21 @@ export default function RegisterSprint(){
     const [objetivo,setObjetivo] = useState(''); 
     const [dataInicio,setDataInicio] = useState(''); 
     const [dataFim,setDataFim] = useState('');  
+
+    useEffect(()=>{
+      if(id!== undefined){
+        api.get(`sprint/find/${id}`).then(
+          result=>{
+            console.log(result);
+            setTitulo(result.data[0].titulo);
+            setObjetivo(result.data[0].objetivo);
+            setDataInicio(result.data[0].inicio);
+            setDataFim(result.data[0].terminoPrevisto);
+          }
+        )
+      }
+      
+    },[id])
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -60,7 +76,7 @@ export default function RegisterSprint(){
                             </div>
                             <div className="col-30">
                                 <label>Previsão de fim</label><br/>
-                                <input onChange={event => { setDataFim(event.target.value) }}  className="input-date" type="date"></input>
+                                <input onChange={event => { setDataFim(event.target.value) }} value={dataFim} className="input-date" type="date"></input>
                             </div>
                           </div>   
 

@@ -46,7 +46,7 @@ routesSprint.delete('/delete/:id',async (req,res)=>{
         const {id}=req.params;
 
         const sprint = {
-            "dtExcluiu":dates.getCurrentFormattedDate()
+            "dtExcluiu":dates.getFormatDateUS()
         };
         
         await knex('sprint').where({"id":id}).update(sprint);
