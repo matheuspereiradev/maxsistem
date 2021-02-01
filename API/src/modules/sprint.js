@@ -41,6 +41,25 @@ routesSprint.post('/register',async (req,res)=>{
     }
 });
 
+routesSprint.put('/edit/:id',async (req,res)=>{
+    try{
+        const {id}=req.params;
+
+        const {titulo,objetivo,dataInicio,dataFim} = req.body;
+
+        const sprint = {
+            "dsTitulo":titulo,
+            "dtInicio":dataInicio,
+            "dtFim":dataFim,
+            "dsObjetivo":objetivo
+        };
+        await knex('sprint').where({"id":id}).update(sprint);
+        return res.status(200).json({"success_mensage":"sucess updated"});
+    }catch(erro){
+        return res.status(500).json({"error_mensage":erro});
+    }
+});
+
 routesSprint.delete('/delete/:id',async (req,res)=>{
     try{
         const {id}=req.params;

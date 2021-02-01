@@ -34,20 +34,22 @@ export default function RegisterSprint(){
 
     async function handleSubmit(event) {
         event.preventDefault();
+        const data = {
+          "titulo":titulo,
+          "objetivo":objetivo,
+          "dataInicio":dataInicio,
+          "dataFim":dataFim
+        }
         if (id === undefined){
-            const data = {
-              "titulo":titulo,
-              "objetivo":objetivo,
-              "dataInicio":dataInicio,
-              "dataFim":dataFim
-            }
-
             const res = await api.post('/sprint/register',data);
             if (res.status === 200){
                 alert('cadastrado com sucesso');
             }
         }else{
-            //edição
+          const res = await api.put(`/sprint/edit/${id}`,data);
+          if (res.status === 200){
+              alert('Editada com sucesso');
+          }
         }
     }    
 
