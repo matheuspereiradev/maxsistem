@@ -5,6 +5,7 @@ a support system focused on software development process
 
 # Structure
 
+
 |->Project </br>
 |</br>
 |-->max  <the project front-end react></br>
@@ -12,6 +13,7 @@ a support system focused on software development process
 |-->Docs <Documentation Use Cases, DER, Routes Docuemntation...></br>
 |</br>
 |-->API <API></br>
+
 
 
 ## Scripts

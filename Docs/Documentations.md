@@ -62,6 +62,24 @@ REQUEST
 }
 
 RESPONSE
+[{
+  id,
+  titulo
+  inicio
+  terminoPrevisto
+  objetivo
+  status (ABERTA||FINALIZADA)
+  dataTermino
+}]
+```
+### **BASEURL/sprint/find/:id**
+```
+REQUEST
+{
+  
+}
+
+RESPONSE
 {
   id,
   titulo
@@ -70,7 +88,6 @@ RESPONSE
   objetivo
   status (ABERTA||FINALIZADA)
   dataTermino
-  usuarioFinalizou
 }
 ```
 
@@ -82,6 +99,45 @@ REQUEST
   objetivo
   dataInicio
   dataFim
+}
+
+RESPONSE 200
+{
+  success_mensage
+}
+
+RESPONSE 500
+{
+  error_mensage
+}
+```
+
+### **BASEURL/sprint/edit/{id}**
+```
+REQUEST
+{
+  titulo
+  objetivo
+  dataInicio
+  dataFim
+}
+
+RESPONSE 200
+{
+  success_mensage
+}
+
+RESPONSE 500
+{
+  error_mensage
+}
+```
+
+### **BASEURL/sprint/delete/{id}**
+```
+REQUEST
+{
+
 }
 
 RESPONSE 200

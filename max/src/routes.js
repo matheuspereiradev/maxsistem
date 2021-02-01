@@ -12,6 +12,7 @@ function Routes(){
 
                 <Route path="/sprint" exact component={sprintList}/>
                 <Route path="/sprint/cadastrar" component={sprintRegister}/>
+                <Route path="/sprint/editar/:id" component={sprintRegister}/>
                 
             </Switch>
         </BrowserRouter>
