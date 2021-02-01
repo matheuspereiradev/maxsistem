@@ -112,7 +112,28 @@ RESPONSE 500
 }
 ```
 
-### **BASEURL/sprint/delete/:id**
+### **BASEURL/sprint/edit/{id}**
+```
+REQUEST
+{
+  titulo
+  objetivo
+  dataInicio
+  dataFim
+}
+
+RESPONSE 200
+{
+  success_mensage
+}
+
+RESPONSE 500
+{
+  error_mensage
+}
+```
+
+### **BASEURL/sprint/delete/{id}**
 ```
 REQUEST
 {
