@@ -4,13 +4,15 @@ import TopBar from '../../components/topBarAdmin'
 import LeftMenu from '../../components/leftMenuAdmin'
 import Footer from '../../components/footer'
 import api from '../../services/api'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { FaSave } from 'react-icons/fa'
 import dates from '../../utils/dates'
 
 export default function RegisterSprint(){
 
     let {id} = useParams();
+
+    const {goBack} = useHistory();
 
     const [titulo,setTitulo]=useState('');
     const [objetivo,setObjetivo] = useState(''); 
@@ -21,11 +23,11 @@ export default function RegisterSprint(){
       if(id!== undefined){
         api.get(`sprint/find/${id}`).then(
           result=>{
-            console.log(result);
+            console.log(dates.formatDateUS(result.data[0].inicio));
             setTitulo(result.data[0].titulo);
             setObjetivo(result.data[0].objetivo);
-            setDataInicio(result.data[0].inicio);
-            setDataFim(result.data[0].terminoPrevisto);
+            setDataInicio(dates.formatDateUS(result.data[0].inicio));
+            setDataFim(dates.formatDateUS(result.data[0].terminoPrevisto));
           }
         )
       }
@@ -44,11 +46,13 @@ export default function RegisterSprint(){
             const res = await api.post('/sprint/register',data);
             if (res.status === 200){
                 alert('cadastrado com sucesso');
+                goBack();
             }
         }else{
           const res = await api.put(`/sprint/edit/${id}`,data);
           if (res.status === 200){
               alert('Editada com sucesso');
+              goBack();
           }
         }
     }    

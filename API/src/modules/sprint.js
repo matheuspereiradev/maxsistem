@@ -25,6 +25,21 @@ routesSprint.get('/find/:id',async (req,res)=>{
     }
 });
 
+routesSprint.get('/details/:id',async (req,res)=>{
+    try{
+        const {id}=req.params;
+        const sprintList = await knex.select('*')
+                                .from('sprint')
+                                .leftJoin('backlog', 'backlog.idSprint','sprint.id')
+                                .leftJoin('statusbacklog', 'statusbacklog.id', 'backlog.idStatus')
+                                .leftJoin('usuarios','usuarios.id','backlog.idResponsavel')
+                                .where({"sprint.id":id,"sprint.dtExcluiu":null,"backlog.dtExcluiu":null});
+        return res.status(200).json(sprintList);
+    }catch(erro){
+        return res.status(500).json({"error_mensage":erro});
+    }
+});
+
 routesSprint.post('/register',async (req,res)=>{
     try{
         const {titulo,objetivo,dataInicio,dataFim} = req.body;
