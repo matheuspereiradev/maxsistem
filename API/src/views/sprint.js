@@ -2,19 +2,19 @@ module.exports={
     render(sprint){
         let dtTermino = "";
         let status;
-        if(sprint.dtFechada != null){
-            dtTermino = sprint.dtFechada;
+        if(sprint.sprintDtFechada != null){
+            dtTermino = sprint.sprintDtFechada;
             status = "FINALIZADA";
         }else{
             status = "ABERTA";
         }
 
         return {
-            id:sprint.id,
-            titulo:sprint.dsTitulo,
-            inicio:sprint.dtInicio,
-            terminoPrevisto:sprint.dtFim,
-            objetivo:sprint.dsObjetivo,
+            id:sprint.sprintId,
+            titulo:sprint.sprintTitulo,
+            inicio:sprint.sprintInicio,
+            terminoPrevisto:sprint.sprintFimEsperado,
+            objetivo:sprint.sprintObjetivo,
             status:status,
             dataTermino:dtTermino
             
