@@ -88,7 +88,6 @@ routesSprint.get('/details/:id',async (req,res)=>{
 
 routesSprint.get('/details',async (req,res)=>{
     try{
-        const {id}=req.params;
         const sprintList = await knex.select('s.id as sprintId               '
                                             ,'s.dsTitulo as  sprintTitulo    '
                                             ,'s.dtInicio as sprintInicio     '
@@ -125,7 +124,6 @@ routesSprint.get('/details',async (req,res)=>{
                                 .leftJoin('usuarios as u','u.id','b.idResponsavel')
                                 .where({"b.dtExcluiu":null});
 
-                              
         return res.status(200).json(viewSprints.renderDetails(sprintList,backlogList));
     }catch(erro){
         return res.status(500).json({"error_mensage":erro});
