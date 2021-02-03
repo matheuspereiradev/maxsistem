@@ -47,7 +47,8 @@ routesSprint.get('/details/:id',async (req,res)=>{
                                             ,'s.dtInicio as sprintInicio     '
                                             ,'s.dtFim as sprintFimEsperado   '
                                             ,'s.dtFechada as sprintDtFechada '
-                                            ,'s.dsObjetivo as sprintObjetivo ')
+                                            ,'s.dsObjetivo as sprintObjetivo '
+                                )
                                 .from('sprint as s')
                                 .where({"s.id":id,"s.dtExcluiu":null});
                                                

@@ -8,13 +8,12 @@ module.exports={
         }else{
             status = "ABERTA";
         }
-
         return {
-            id:sprint.sprintId,
-            titulo:sprint.sprintTitulo,
-            inicio:sprint.sprintInicio,
-            terminoPrevisto:sprint.sprintFimEsperado,
-            objetivo:sprint.sprintObjetivo,
+            sprintId:sprint.sprintId,
+            sprintTitulo:sprint.sprintTitulo,
+            sprintInicio:sprint.sprintInicio,
+            sprintFimEsperado:sprint.sprintFimEsperado,
+            sprintObjetivo:sprint.sprintObjetivo,
             status:status,
             dataTermino:dtTermino
             
