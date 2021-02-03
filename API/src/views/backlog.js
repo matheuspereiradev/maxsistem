@@ -12,6 +12,7 @@ module.exports={
             ticket:backlog.idTicket,
             status:backlog.nmStatusBacklog,
             responsavel:backlog.nmUsuario,
+            idSprint:backlog.idSprint,
             documentacao:{
                 scripts:backlog.dsScripts,
                 forms:backlog.dsForms,
