@@ -1,5 +1,6 @@
 
 const mySQL = require('./database/config');
+const dates = require('../helpers/dates')
 
 const columnsSprint = [
       's.id as sprintId               '
@@ -26,5 +27,14 @@ module.exports = {
             .where(filtro);
 
         return sprintList;
+    },
+
+    async deleteSprint(id){
+        const sprint = {
+            "dtExcluiu":dates.getFormatDateUS()
+        };
+        
+        await mySQL('sprint').where({"id":id}).update(sprint);
+        return {"success_mensage":"deleted with success"};
     }
 };

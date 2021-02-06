@@ -179,7 +179,7 @@ routesSprint.delete('/delete/:id',async (req,res)=>{
     }catch(erro){
         return res.status(500).json({"error_mensage":erro});
     }
-})
+}) 
 
 
 module.exports = routesSprint;
