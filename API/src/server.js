@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const path =require('path')
 const app = express();
 
+require('dotenv').config();
+
 const routerIndex = require('./routes/index')
 
 app.use(bodyParser.json()); 

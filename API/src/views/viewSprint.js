@@ -21,19 +21,11 @@ module.exports={
     },
 
     renderMany(sprints){
-        return sprints.map(s=>this.render(s))
+        return sprints.map(this.render) //return sprints.map(s=>this.render(s))
     },
 
     renderDetails(sprints,backlogs){
-        /*let dtTermino = "";
-        let status;
-        if(sprint.sprintDtFechada != null){
-            dtTermino = sprint.sprintDtFechada;
-            status = "FINALIZADA";
-        }else{
-            status = "ABERTA";
-        }
-        */
+
         return sprints.map(s=>({
             ...s,
             backlogs:backlogs.filter(b => b.backlogIdSprint === s.sprintId)
