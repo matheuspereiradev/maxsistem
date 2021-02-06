@@ -1,13 +1,12 @@
 const {Router} = require('express');
-const sprint = require('../controller/sprint')
-
+const routesSprint = require('./routesSprints')
 
 const routes = Router();
 
-routes.get('/',(req,res)=>{
-    res.json({mensagem:"funcionando"})
+routes.get('/test',(req,res)=>{
+    res.json({mensagem:"working"})
 });
 
-routes.get('/sprint',sprint.getSprint);
+routes.use('/sprint',routesSprint);
 
 module.exports = routes;

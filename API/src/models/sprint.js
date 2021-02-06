@@ -1,12 +1,14 @@
 
 const mySQL = require('./database/config');
-//const viewSprints = require('../views/sprint');
-//const dates = require('../utils/dates');
-
 
 module.exports = {
     async getSprint(id){
         try{
+            let filtro;
+            if (id===null)
+                filtro = {"s.id":id,"s.dtExcluiu":null}
+            else
+                filtro = {'s.dtExcluiu':null}
             const sprintList = await mySQL.select('s.id as sprintId               '
                                                 ,'s.dsTitulo as  sprintTitulo    '
                                                 ,'s.dtInicio as sprintInicio     '
@@ -14,7 +16,7 @@ module.exports = {
                                                 ,'s.dtFechada as sprintDtFechada '
                                                 ,'s.dsObjetivo as sprintObjetivo '
                                                 ).from('sprint as s')
-                                                .where('s.dtExcluiu',null);
+                                                .where(filtro);
             return sprintList;
         }catch(erro){
             return erro;
