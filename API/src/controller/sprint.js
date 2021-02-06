@@ -5,8 +5,16 @@ const viewSprints = require('../views/viewSprint');
 
 module.exports = {
     async getSprint(req,res, next){
-        const {id} = req.params;
-        const sprints = await modelSprint.getSprint(id);
-        return res.json(viewSprints.renderMany(sprints));
+        try {
+            
+            const {id} = req.params;
+            const sprints = await modelSprint.getSprint(id);
+            const renderSprints = viewSprints.renderMany(sprints);
+
+            return res.json(renderSprints);
+
+        } catch (error) {
+            next(error)
+        }
     }
 }

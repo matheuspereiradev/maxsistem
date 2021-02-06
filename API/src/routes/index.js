@@ -9,4 +9,17 @@ routes.get('/test',(req,res)=>{
 
 routes.use('/sprint',routesSprint);
 
+// Rota não encontrada
+routes.use("/", function (req, res, next) {
+    next({
+        status: 400,
+        message: 'Rota não encontrada'
+    })
+});
+
+// Tratando envio de erros
+routes.use(function (err, req, res, next) {
+    return res.status(err.status || 500).json({ message: err.message });
+});
+
 module.exports = routes;
