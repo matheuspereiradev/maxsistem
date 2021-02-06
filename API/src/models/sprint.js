@@ -1,13 +1,13 @@
 
-const mySQL = require('../database/config');
-const viewSprints = require('../views/sprint');
-const dates = require('../utils/dates');
+const mySQL = require('./database/config');
+//const viewSprints = require('../views/sprint');
+//const dates = require('../utils/dates');
 
 
 module.exports = {
     async getSprint(id){
         try{
-            const sprintList = await knex.select('s.id as sprintId               '
+            const sprintList = await mySQL.select('s.id as sprintId               '
                                                 ,'s.dsTitulo as  sprintTitulo    '
                                                 ,'s.dtInicio as sprintInicio     '
                                                 ,'s.dtFim as sprintFimEsperado   '
@@ -15,9 +15,9 @@ module.exports = {
                                                 ,'s.dsObjetivo as sprintObjetivo '
                                                 ).from('sprint as s')
                                                 .where('s.dtExcluiu',null);
-            return res.status(200).json(sprintList);
+            return sprintList;
         }catch(erro){
-            return res.status(500).json({"error_mensage":erro});
+            return erro;
         }
     }
 };
