@@ -31,6 +31,12 @@ export default function IndexPage(){
                           <a href="#">Link 3</a>
                         </div>
                       </div> 
+                      <br/>
+                      <br/>
+                      <label className="switch">
+                        <input type="checkbox"/>
+                        <span className="slider round"></span>
+                      </label>
                     </div>
                 </div>
                 <div id="footer" className="align-center">

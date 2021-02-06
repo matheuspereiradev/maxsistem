@@ -63,13 +63,13 @@ REQUEST
 
 RESPONSE
 [{
-  id,
-  titulo
-  inicio
-  terminoPrevisto
-  objetivo
+  sprintId,
+  sprintTitulo,
+  sprintInicio,
+  sprintFimEsperado,
+  sprintObjetivo,
   status (ABERTA||FINALIZADA)
-  dataTermino
+  sprintDtFechada
 }]
 ```
 ### **BASEURL/sprint/find/:id**
@@ -81,13 +81,13 @@ REQUEST
 
 RESPONSE
 {
-  id,
-  titulo
-  inicio
-  terminoPrevisto
-  objetivo
+  sprintId,
+  sprintTitulo,
+  sprintInicio,
+  sprintFimEsperado,
+  sprintObjetivo,
   status (ABERTA||FINALIZADA)
-  dataTermino
+  sprintDtFechada
 }
 ```
 
@@ -149,4 +149,42 @@ RESPONSE 500
 {
   error_mensage
 }
+```
+
+### **BASEURL/sprint/details/{id}** //id é opcional
+
+```
+[{
+    sprintId,
+    sprintTitulo,
+    sprintInicio,
+    sprintFimEsperado,
+    sprintDtFechada,
+    sprintObjetivo,
+    backlogs: [
+      {
+        backlogId,
+        backlogTitulo,
+        backlogDominio,
+        backlogObs,
+        backlogValor,
+        backlogPtTrabalho,
+        backlogMnEstimando,
+        backlogScripts,
+        backlogForms,
+        backlogTestes,
+        backlogRequisitos,
+        backlogIdSprint,
+        backlogDtConcluido,
+        backlogDtAprovado,
+        backlogDtHomologado,
+        backlogDtEntregue,
+        backlogOriginal,
+        backlogLink,
+        backlogticket,
+        backlogStatus,
+        backlogResponsavel
+      }
+    ]
+  }]
 ```

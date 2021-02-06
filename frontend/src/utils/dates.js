@@ -19,5 +19,29 @@ export default {
         today = yyyy + '/' + mm + '/' +  dd
           
         return today;
+    },
+
+    formatDateBR(valor){
+        let dt = new Date(valor)
+
+        let year = dt.getFullYear()
+        let month = dt.getMonth()+1
+        let day = dt.getDate()
+
+        const data = `${day}/${month}/${year}`
+
+        return data;
+    },
+
+    formatDateUS(valor){
+        let dt = new Date(valor)
+
+        let year = dt.getFullYear()
+        let month = dt.getMonth()+1
+        let day = dt.getDate()
+
+        const data = `${year}/${month}/${day}`
+
+        return data;
     }
 }

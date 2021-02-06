@@ -3,9 +3,10 @@ import '../../styles/home.css'
 import TopBar from '../../components/topBarAdmin'
 import LeftMenu from '../../components/leftMenuAdmin'
 import Footer from '../../components/footer'
-import { FaEdit, FaPlus, FaThumbtack, FaTrash } from 'react-icons/fa'
+import { FaCog, FaEdit, FaPlus, FaThumbtack, FaTrash } from 'react-icons/fa'
 import api from '../../services/api'
 import { Link } from 'react-router-dom'
+import datas from '../../utils/dates'
 
 export default function ListSprints(){
 
@@ -60,9 +61,9 @@ export default function ListSprints(){
                                 <tr key={sprint.id}>
                                         <td data-label="Cód">{sprint.id}</td>
                                         <td data-label="Titulo">{sprint.titulo}</td>
-                                        <td data-label="descrição">{sprint.inicio}</td>
+                                        <td data-label="descrição">{datas.formatDateBR(sprint.inicio)} <br/> {datas.formatDateBR(sprint.terminoPrevisto)}</td>
                                         <td data-label="descrição">{sprint.status}</td>
-                                        <td data-label="Associar backlog"><button className="btn btn-block btn-sm yellow-button"><FaThumbtack/> Associar</button></td>
+                                        <td data-label="Associar backlog"><button className="btn btn-block btn-sm yellow-button"><FaCog/> Configurar</button></td>
                                         <td data-label="editar"><Link to={`sprint/editar/${sprint.id}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
                                         <td data-label="excluir"><button onClick={()=>{excluirSprint(sprint.id)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>

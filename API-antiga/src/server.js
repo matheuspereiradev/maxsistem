@@ -5,9 +5,8 @@ const bodyParser = require('body-parser');
 const path =require('path')
 const app = express();
 
-require('dotenv').config();
-
-const routerIndex = require('./routes/index')
+const routerIndex = require('./modules/index')
+const routerSprint = require('./modules/sprint')
 
 app.use(bodyParser.json()); 
 
@@ -16,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/',routerIndex);
+app.use('/sprint',routerSprint);
 
 app.use('/uploads',express.static(path.join(__dirname ,'uploads')));
 
