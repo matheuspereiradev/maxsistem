@@ -5,7 +5,7 @@ module.exports = {
     async getSprint(id){
         try{
             let filtro;
-            if (id===null)
+            if (id!==undefined)
                 filtro = {"s.id":id,"s.dtExcluiu":null}
             else
                 filtro = {'s.dtExcluiu':null}
