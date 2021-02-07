@@ -1,8 +1,7 @@
-const { response } = require('express');
-const { deleteSprint, editSprint } = require('../models/sprint');
 const modelSprint = require('../models/sprint');
 const modelBacklog =require('../models/backlog')
 const viewSprints = require('../views/viewSprint');
+const dates = require('../helpers/dates');
 //const dates = require('../utils/dates');
 
 
@@ -41,6 +40,23 @@ module.exports = {
         try {
             const {id}=req.params;
             const response= await modelSprint.deleteSprint(id);
+            return res.json(response);
+
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    async closeSprint(req,res,next){
+        try {
+            const {id}=req.params;
+            const {usuario } = req.body;
+            const sprint = {
+                "id":id,
+                "idUsuarioFechou":usuario,
+                "dtFechada":dates.getFormatDateUS()
+            }
+            const response = await modelSprint.closeSprint(sprint);
             return res.json(response);
 
         } catch (error) {

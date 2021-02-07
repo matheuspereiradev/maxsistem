@@ -29,6 +29,11 @@ module.exports = {
         return sprintList;
     },
 
+    async closeSprint(sprint){
+        await mySQL('sprint').where({"id":sprint.id}).update(sprint);
+        return {"success_mensage":"success closed"};
+    },
+
     async deleteSprint(id){
         const sprint = {
             "dtExcluiu":dates.getFormatDateUS()
@@ -40,7 +45,7 @@ module.exports = {
 
     async registerSprint(sprint){
         await mySQL('sprint').insert(sprint);
-        return {"success_mensage":"sucess insert"};
+        return {"success_mensage":"success insert"};
     },
 
     async editSprint(sprint){

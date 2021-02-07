@@ -106,10 +106,7 @@ RESPONSE 200
   success_mensage
 }
 
-RESPONSE 500
-{
-  error_mensage
-}
+
 ```
 
 ### **BASEURL/sprint/edit/{id}**
@@ -127,9 +124,19 @@ RESPONSE 200
   success_mensage
 }
 
-RESPONSE 500
+
+```
+
+### **BASEURL/sprint/close/{id}**
+```
+REQUEST
 {
-  error_mensage
+	usuario
+}
+
+RESPONSE 200
+{
+  success_mensage
 }
 ```
 
@@ -145,10 +152,7 @@ RESPONSE 200
   success_mensage
 }
 
-RESPONSE 500
-{
-  error_mensage
-}
+
 ```
 
 ### **BASEURL/sprint/details/{id}** //id é opcional
