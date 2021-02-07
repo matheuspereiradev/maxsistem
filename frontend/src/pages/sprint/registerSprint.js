@@ -10,7 +10,7 @@ import dates from '../../utils/dates'
 
 export default function RegisterSprint(){
 
-    let {id} = useParams();
+    const params = useParams();
 
     const {goBack} = useHistory();
 
@@ -20,8 +20,8 @@ export default function RegisterSprint(){
     const [dataFim,setDataFim] = useState('');  
 
     useEffect(()=>{
-      if(id!== undefined){
-        api.get(`sprint/find/${id}`).then(
+      if(params.id!== undefined){
+        api.get(`sprint/find/${params.id}`).then(
           result=>{
             setTitulo(result.data[0].sprintTitulo);
             setObjetivo(result.data[0].sprintObjetivo);
@@ -31,7 +31,7 @@ export default function RegisterSprint(){
         )
       }
       
-    },[id])
+    },[params.id])
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -41,14 +41,14 @@ export default function RegisterSprint(){
           "dataInicio":dataInicio,
           "dataFim":dataFim
         }
-        if (id === undefined){
+        if (params.id === undefined){
             const res = await api.post('/sprint/register',data);
             if (res.status === 200){
                 alert('cadastrado com sucesso');
                 goBack();
             }
         }else{
-          const res = await api.put(`/sprint/edit/${id}`,data);
+          const res = await api.put(`/sprint/edit/${params.id}`,data);
           if (res.status === 200){
               alert('Editada com sucesso');
               goBack();
