@@ -23,11 +23,10 @@ export default function RegisterSprint(){
       if(id!== undefined){
         api.get(`sprint/find/${id}`).then(
           result=>{
-            console.log(dates.formatDateUS(result.data[0].inicio));
-            setTitulo(result.data[0].titulo);
-            setObjetivo(result.data[0].objetivo);
-            setDataInicio(dates.formatDateUS(result.data[0].inicio));
-            setDataFim(dates.formatDateUS(result.data[0].terminoPrevisto));
+            setTitulo(result.data[0].sprintTitulo);
+            setObjetivo(result.data[0].sprintObjetivo);
+            setDataInicio(dates.formatDateUS(result.data[0].sprintInicio));
+            setDataFim(dates.formatDateUS(result.data[0].sprintFimEsperado));
           }
         )
       }
