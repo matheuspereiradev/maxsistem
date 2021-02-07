@@ -1,6 +1,6 @@
 
 const mySQL = require('./database/config');
-const dates = require('../helpers/dates')
+const dates = require('../helpers/dates');
 
 const columnsSprint = [
       's.id as sprintId               '
@@ -29,6 +29,11 @@ module.exports = {
         return sprintList;
     },
 
+    async closeSprint(sprint){
+        await mySQL('sprint').where({"id":sprint.id}).update(sprint);
+        return {"success_mensage":"success closed"};
+    },
+
     async deleteSprint(id){
         const sprint = {
             "dtExcluiu":dates.getFormatDateUS()
@@ -36,5 +41,15 @@ module.exports = {
         
         await mySQL('sprint').where({"id":id}).update(sprint);
         return {"success_mensage":"deleted with success"};
+    },
+
+    async registerSprint(sprint){
+        await mySQL('sprint').insert(sprint);
+        return {"success_mensage":"success insert"};
+    },
+
+    async editSprint(sprint){
+        await mySQL('sprint').where({"id":sprint.id}).update(sprint);
+        return {"success_mensage":"sucess updated"};
     }
 };
