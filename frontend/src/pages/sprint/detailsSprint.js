@@ -87,7 +87,7 @@ export default function ListSprints(){
                                 <tr key={backlog.backlogId}>
                                         <td data-label="Cód">{backlog.backlogId}</td>
                                         <td data-label="Titulo">{backlog.backlogTitulo}</td>
-                                        <td data-label="Tempo estimado">{backlog.backlogMnEstimando}</td>
+                                        <td data-label="Tempo estimado">{datas.getHoursByMinuts(backlog.backlogMnEstimando)}</td>
                                         <td data-label="descrição">{backlog.backlogStatus}</td>
                                         <td data-label="Associar backlog">{backlog.backlogResponsavel}</td>
                                         <td data-label="editar"></td>

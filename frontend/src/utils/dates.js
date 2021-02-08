@@ -43,5 +43,12 @@ export default {
         const data = `${("0000" + year).slice(-4)}-${("00" + month).slice(-2)}-${("00" + day).slice(-2)}`
 
         return data;
+    },
+
+    getHoursByMinuts(minuts){
+        let horas = Math.trunc(minuts/60)
+        let minutos = minuts-(horas*60)
+
+        return(`${("00" + horas).slice(-2)}:${("00" + minutos).slice(-2)}`)
     }
 }

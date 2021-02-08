@@ -25,6 +25,6 @@ module.exports ={
         let horas = Math.trunc(minuts/60)
         let minutos = minuts-(horas*60)
 
-        return(`${horas}:${minutos}`)
+        return(`${("00" + horas).slice(-2)}:${("00" + minutos).slice(-2)}`)
     }
 }
