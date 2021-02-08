@@ -6,7 +6,7 @@ import Footer from '../../components/footer'
 import api from '../../services/api'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import datas from '../../utils/dates'
-import { FaCog, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
+import { FaArrowLeft, FaCog, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 
 export default function ListSprints(){
     
@@ -49,7 +49,7 @@ export default function ListSprints(){
               <div className="main">
                   <div className="content">
                     <div className="content-body">
-                      <button onClick={()=>{goBack()}}>Voltar</button>
+                      <button className="btn transparent-button" onClick={()=>{goBack()}}><FaArrowLeft size={12}/> Voltar</button>
                         <h2>{sprint.sprintTitulo}</h2>
                         <hr/>
                         <div className="row">
