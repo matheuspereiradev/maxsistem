@@ -16,7 +16,7 @@ export default {
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = today.getFullYear();
         
-        today = yyyy + '/' + mm + '/' +  dd
+        today = yyyy + '-' + mm + '-' +  dd
           
         return today;
     },
@@ -28,7 +28,7 @@ export default {
         let month = dt.getMonth()+1
         let day = dt.getDate()
 
-        const data = `${day}/${month}/${year}`
+        const data = `${("00" + day).slice(-2)}/${("00" + month).slice(-2)}/${("0000" + year).slice(-4)}`
 
         return data;
     },
@@ -40,7 +40,7 @@ export default {
         let month = dt.getMonth()+1
         let day = dt.getDate()
 
-        const data = `${year}/${month}/${day}`
+        const data = `${("0000" + year).slice(-4)}-${("00" + month).slice(-2)}-${("00" + day).slice(-2)}`
 
         return data;
     }
