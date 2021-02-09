@@ -1,5 +1,6 @@
 const {Router} = require('express');
-const routesSprint = require('./routesSprints')
+const routesSprint = require('./routesSprints');
+const routesUsers = require('./routesUsers')
 
 const routes = Router();
 
@@ -8,6 +9,7 @@ routes.get('/test',(req,res)=>{
 });
 
 routes.use('/sprint',routesSprint);
+routes.use('/user',routesUsers);
 
 // Rota não encontrada
 routes.use("/", function (req, res, next) {

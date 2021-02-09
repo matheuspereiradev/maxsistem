@@ -7,9 +7,9 @@ const columnsUser = [
      ,'u.dsEmail as userEmail'
      ,'u.cdTelefone as userTelefone'
      ,'u.flCliente as userIsClient'
-     ,'u.flGestor as userIsManager'
+     ,'u.flClienteGestor as userIsManager'
      ,'e.nmEmpresa as userCompany'
-     ,'e.nmSetor as userSector'
+     ,'s.nmSetor as userSector'
 ];
 
 module.exports = {
