@@ -16,7 +16,7 @@ export default function ListSprints(){
     const {goBack} = useHistory();
 
     const [sprint,setSprint]=useState({});
-    const [open,setOpen]=useState(false);
+    const [isOpen,setisOpen]=useState(false);
 
     useEffect(()=>{ 
       api.get(`sprint/details/${params.id}`).then(sprint=>{
@@ -71,7 +71,7 @@ export default function ListSprints(){
                           <br/><br/>
                           
                     <table>
-                    <caption>Backlogs <button onClick={()=>{setOpen(true)}} className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></caption>
+                    <caption>Backlogs <button onClick={()=>{setisOpen(true)}} className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></caption>
                     <thead>
                         <tr>
                         <th scope="col">Cód</th>
@@ -105,14 +105,65 @@ export default function ListSprints(){
                     </tbody>
                     </table>
                     </div>
-                    <Modal isOpen={open} onRequestClose={()=>setOpen(false)} >
+                    <Modal isOpen={isOpen} onRequestClose={()=>setisOpen(false)} >
                     
                         <h3>Cadastrar backlog</h3>
-                        <p>Teste teste</p>
+                        
+                        <form>
+                          <div className="row">
+                            <div className="col-30">
+                              <label>Dominio:</label>
+                              <input maxLength="45" required className="input-text" type="text"/>
+                            </div>
+                            <div className="col-70 margin-left-5">
+                              <label>Titulo:</label>
+                              <input maxLength="45" required className="input-text" type="text"/>
+                            </div>
+                          </div>
+                          <div className="row">
+                            
+                            <div className="col-30">
+                              <label>Chamado:</label>
+                              <input required className="input-text" type="text"/>
+                            </div>
+                            <div className="col-40 margin-left-5">
+                              <label>Responsável:</label>
+                              <input required className="input-text" type="text"/>
+                            </div>
+                            <div className="col-10 margin-left-5">
+                              <label>Pontos:</label>
+                              <input min="1" max="100" required className="input-text" type="number"/>
+                            </div>
+                            <div className="col-10 margin-left-5">
+                              <label>Valor:</label>
+                              <input min="1" max="100" required className="input-text" type="number"/>
+                            </div>
+                            <div className="col-10 margin-left-5">
+                              <label>Tempo (Min.):</label>
+                              <input required className="input-text" type="number"/>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-50">
+                              <label>Descrição:</label>
+                              <textarea rows="7" className="text-area"/>
+                            </div>
+                            <div className="col-50 margin-left-5">
+                              <label>Requisitos:</label>
+                              <textarea rows="7" className="text-area"/>
+                            </div>
+                            
+                          </div>
+
+                            
+                            
+                        
+                        </form>    
+                        <br/><br/>    
                         <hr/>
                         <div className="row">
-                            <button className="btn red-button">Cancelar</button>
-                            <button className="btn green-button">Salvar</button>
+                            <button className="btn red-button" onClick={()=>setisOpen(false)}>Cancelar</button>
+                            <button className="btn green-button margin-left-5">Salvar</button>
                         </div>
                     </Modal>
                 </div>

@@ -1,13 +1,7 @@
 # TIPOS DE USUÁRIO
 
-- **1** - Cliente funcionário
-- **2** - Cliente Gestor
-- **3** - Administrador do sistema(SUPORTE)
-- **4** - Desenvolvedor
-- **5** - Lançador versão
-- **6** - Tester
-- **7** - Gestor de equipe de desenvolvimento
-- **8** - PO
+- **1** - Cliente (funcionário||gestor)
+- **2** - Operador
 
 # CHAMADOS
 
