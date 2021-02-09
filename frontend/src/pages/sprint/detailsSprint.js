@@ -155,9 +155,6 @@ export default function ListSprints(){
                             
                           </div>
 
-                            
-                            
-                        
                         </form>    
                         <br/><br/>    
                         <hr/>
