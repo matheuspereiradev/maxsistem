@@ -12,7 +12,6 @@ const columnsBacklog = [
     ,'b.mnEstimados as backlogMnEstimando   '
     ,'b.dsScripts as backlogScripts         '
     ,'b.dsForms as backlogForms             ' 
-    ,'b.dsTestes as backlogTestes           ' 
     ,'b.dsRequisitos as backlogRequisitos   '
     ,'b.idSprint as backlogIdSprint         '
     ,'b.dtConcluido as backlogDtConcluido   ' 
