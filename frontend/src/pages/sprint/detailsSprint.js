@@ -7,6 +7,8 @@ import api from '../../services/api'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import datas from '../../utils/dates'
 import { FaArrowLeft, FaCog, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
+import Modal from 'react-modal'
+Modal.setAppElement('#root');
 
 export default function ListSprints(){
     
@@ -14,6 +16,7 @@ export default function ListSprints(){
     const {goBack} = useHistory();
 
     const [sprint,setSprint]=useState({});
+    const [open,setOpen]=useState(false);
 
     useEffect(()=>{ 
       api.get(`sprint/details/${params.id}`).then(sprint=>{
@@ -68,7 +71,7 @@ export default function ListSprints(){
                           <br/><br/>
                           
                     <table>
-                    <caption>Backlogs <Link to="/backlog/cadastrar"><button className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></Link></caption>
+                    <caption>Backlogs <button onClick={()=>{setOpen(true)}} className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></caption>
                     <thead>
                         <tr>
                         <th scope="col">Cód</th>
@@ -102,6 +105,16 @@ export default function ListSprints(){
                     </tbody>
                     </table>
                     </div>
+                    <Modal isOpen={open} onRequestClose={()=>setOpen(false)} >
+                    
+                        <h3>Cadastrar backlog</h3>
+                        <p>Teste teste</p>
+                        <hr/>
+                        <div className="row">
+                            <button className="btn red-button">Cancelar</button>
+                            <button className="btn green-button">Salvar</button>
+                        </div>
+                    </Modal>
                 </div>
                 <Footer/>
               </div>
