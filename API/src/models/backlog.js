@@ -44,5 +44,10 @@ module.exports = {
             .where(filtro);
 
         return backlogList;
+    },
+
+    async registerBacklog(backlog){
+        await mySQL('backlog').insert(backlog);
+        return {"success_mensage":"success insert"};
     }
 };

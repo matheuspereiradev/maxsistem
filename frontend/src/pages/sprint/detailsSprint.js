@@ -17,7 +17,17 @@ export default function DetailsSprints(){
 
     const [sprint,setSprint]=useState({});
     const [isOpen,setisOpen]=useState(false);
-    const [users,setUsers]=useState([])
+    const [users,setUsers]=useState([]);
+
+    const [dominio,setDominio]=useState('');
+    const [titulo,setTitulo]=useState('');
+    const [chamado,setChamado]=useState('');
+    const [pontos,setPontos]=useState(50);
+    const [valor,setValor]=useState(50);
+    const [tempo,setTempo]=useState(60);
+    const [responsavel,setResponsavel]=useState(0);
+    const [requisitos,setRequisitos]=useState('');
+    const [descricao,setDescricao]=useState('');
 
     useEffect(()=>{ 
       api.get(`sprint/details/${params.id}`).then(sprint=>{
@@ -31,6 +41,19 @@ export default function DetailsSprints(){
       }) 
     },[params.id])
   
+    async function handleSubmit(event) {
+      event.preventDefault();
+
+        /*const data = {
+          "nome":nome,
+          "descricao":descricao
+        }
+        const res = await api.post('/categories/register',data);
+        if (res.status === 200){
+          alert('cadastrado com sucesso');
+        } */       
+    }
+
     function excluirSprint(id){
       try{
         api.delete(`sprint/delete/${id}`).then(res=>{
@@ -116,22 +139,22 @@ export default function DetailsSprints(){
                     
                         <h3>Cadastrar backlog</h3>
                         
-                        <form>
+                        <form onSubmit={handleSubmit}>
                           <div className="row">
                             <div className="col-30">
                               <label>Dominio:</label>
-                              <input maxLength="45" required className="input-text" type="text"/>
+                              <input maxLength="45" value={dominio} onChange={event=>{ setDominio(event.target.value)}} required className="input-text" type="text"/>
                             </div>
                             <div className="col-70 margin-left-5">
                               <label>Titulo:</label>
-                              <input maxLength="45" required className="input-text" type="text"/>
+                              <input maxLength="45" value={titulo} onChange={event=>{ setTitulo(event.target.value)}} required className="input-text" type="text"/>
                             </div>
                           </div>
                           <div className="row">
                             
                             <div className="col-30">
                               <label>Chamado:</label>
-                              <input required className="input-text" type="text"/>
+                              <input required className="input-text" value={chamado} onChange={event=>{ setChamado(event.target.value)}} type="text"/>
                             </div>
                             <div className="col-40 margin-left-5">
                               <label>Responsável:</label>
@@ -146,25 +169,25 @@ export default function DetailsSprints(){
                             </div>
                             <div className="col-10 margin-left-5">
                               <label>Pontos:</label>
-                              <input min="1" max="100" required className="input-text" type="number"/>
+                              <input min="1" max="100" value={pontos} onChange={event=>{ setPontos(event.target.value)}} required className="input-text" type="number"/>
                             </div>
                             <div className="col-10 margin-left-5">
                               <label>Valor:</label>
-                              <input min="1" max="100" required className="input-text" type="number"/>
+                              <input min="1" max="100" value={valor} onChange={event=>{ setValor(event.target.value)}} required className="input-text" type="number"/>
                             </div>
                             <div className="col-10 margin-left-5">
                               <label>Tempo (Min.):</label>
-                              <input required className="input-text" type="number"/>
+                              <input required value={tempo} onChange={event=>{ setTempo(event.target.value)}} className="input-text" type="number"/>
                             </div>
                           </div>
                           <div className="row">
                             <div className="col-50">
                               <label>Descrição:</label>
-                              <textarea rows="7" className="text-area"/>
+                              <textarea rows="7" value={descricao} onChange={event=>{ setDescricao(event.target.value)}} className="text-area"/>
                             </div>
                             <div className="col-50 margin-left-5">
                               <label>Requisitos:</label>
-                              <textarea rows="7" className="text-area"/>
+                              <textarea rows="7" value={requisitos} onChange={event=>{ setRequisitos(event.target.value)}}  className="text-area"/>
                             </div>
                             
                           </div>

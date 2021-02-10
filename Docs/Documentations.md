@@ -187,6 +187,31 @@ RESPONSE 200
   }]
 ```
 
+## BACKLOG
+
+### **BASEURL/backlog/register**
+```
+REQUEST
+{
+	dominio,
+	titulo,
+	chamado,
+	responsavel,
+	pontos,
+	valor,
+	tempo,
+	descricao,
+	requisitos,
+  sprint
+}
+
+RESPONSE 200
+{
+    
+}
+
+```
+
 ## USUARIO
 
 ### **BASEURL/user/all**
@@ -209,6 +234,4 @@ RESPONSE 200
     userSector
   }
 ]
-
-
 ```

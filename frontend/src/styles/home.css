@@ -606,6 +606,10 @@ select{
 }
 
 @media (max-width:400px) {
+
+    .margin-left-5{
+        margin-left: 0px;
+    }
     
     .nav > .nav-btn {
         display: inline-block;
@@ -720,6 +724,11 @@ input:checked + .slider:before {
 
 
 @media(max-width:740px){
+
+    .margin-left-5{
+        margin-left: 0px;
+    }
+    
     .row{
         display: inline-flex;
         flex-direction: column;
