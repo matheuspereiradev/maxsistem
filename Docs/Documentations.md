@@ -186,3 +186,29 @@ RESPONSE 200
     ]
   }]
 ```
+
+## USUARIO
+
+### **BASEURL/user/all**
+```
+REQUEST
+{
+
+}
+
+RESPONSE 200
+[
+  {
+    userId
+    userName
+    userEmail
+    userTelefone
+    userIsClient
+    userIsManager
+    userCompany
+    userSector
+  }
+]
+
+
+```

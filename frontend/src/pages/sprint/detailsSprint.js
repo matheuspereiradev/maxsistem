@@ -10,18 +10,25 @@ import { FaArrowLeft, FaCog, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 import Modal from 'react-modal'
 Modal.setAppElement('#root');
 
-export default function ListSprints(){
+export default function DetailsSprints(){
     
     const params = useParams();
     const {goBack} = useHistory();
 
     const [sprint,setSprint]=useState({});
     const [isOpen,setisOpen]=useState(false);
+    const [users,setUsers]=useState([])
 
     useEffect(()=>{ 
       api.get(`sprint/details/${params.id}`).then(sprint=>{
-          setSprint(sprint.data[0]);
-        })
+        setSprint(sprint.data[0]);
+      })
+
+      api.get('user/all').then(user=>{
+        setUsers(user.data.filter((elemnt)=>{
+          return elemnt.userIsClient === false;
+        }));
+      }) 
     },[params.id])
   
     function excluirSprint(id){
@@ -128,7 +135,14 @@ export default function ListSprints(){
                             </div>
                             <div className="col-40 margin-left-5">
                               <label>Responsável:</label>
-                              <input required className="input-text" type="text"/>
+                              <select className="select-box" id="categorias">
+                                    <option value="0">Sem responsável</option>
+                                    {users && (users.map(user=>{
+                                      return(
+                                        <option key={user.userId} value={user.userId}>{user.userName}</option>
+                                      )
+                                    }))}
+                              </select>
                             </div>
                             <div className="col-10 margin-left-5">
                               <label>Pontos:</label>
