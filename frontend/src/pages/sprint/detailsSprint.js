@@ -43,15 +43,25 @@ export default function DetailsSprints(){
   
     async function handleSubmit(event) {
       event.preventDefault();
-
-        /*const data = {
-          "nome":nome,
-          "descricao":descricao
+        console.log('oi')
+        const data = {
+          "dominio":dominio,
+          "titulo":titulo,
+          "chamado":chamado,
+          "responsavel":responsavel,
+          "pontos":pontos,
+          "valor":valor,
+          "tempo":tempo,
+          "descricao":descricao,
+          "requisitos":requisitos,
+          "sprint":params.id
         }
-        const res = await api.post('/categories/register',data);
+
+        console.log(data)
+        const res = await api.post('/backlog/register',data);
         if (res.status === 200){
           alert('cadastrado com sucesso');
-        } */       
+        }   
     }
 
     function excluirSprint(id){
@@ -158,7 +168,7 @@ export default function DetailsSprints(){
                             </div>
                             <div className="col-40 margin-left-5">
                               <label>Responsável:</label>
-                              <select className="select-box" id="categorias">
+                              <select className="select-box" id="responsavel" value={responsavel} onChange={event=>{ setResponsavel(event.target.value)}}>
                                     <option value="0">Sem responsável</option>
                                     {users && (users.map(user=>{
                                       return(
@@ -192,13 +202,14 @@ export default function DetailsSprints(){
                             
                           </div>
 
-                        </form>    
+                           
                         <br/><br/>    
                         <hr/>
                         <div className="row">
                             <button className="btn red-button" onClick={()=>setisOpen(false)}>Cancelar</button>
                             <button className="btn green-button margin-left-5">Salvar</button>
                         </div>
+                      </form>   
                     </Modal>
                 </div>
                 <Footer/>
