@@ -77,7 +77,6 @@ export default function ListSprints(){
                     </table> 
                     </div>
                 </div>
-                <Footer/>
               </div>
         </div>           
               

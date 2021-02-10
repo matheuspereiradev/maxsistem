@@ -93,7 +93,7 @@ export default function RegisterSprint(){
                       
                     </div>
                 </div>
-                <Footer/>
+                
               </div>
         </div>           
               

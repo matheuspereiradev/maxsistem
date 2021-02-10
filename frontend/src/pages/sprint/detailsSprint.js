@@ -212,7 +212,7 @@ export default function DetailsSprints(){
                       </form>   
                     </Modal>
                 </div>
-                <Footer/>
+               
               </div>
         </div>           
               
