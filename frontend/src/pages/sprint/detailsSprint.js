@@ -80,6 +80,18 @@ export default function DetailsSprints(){
       }
     }
 
+    function excluirBacklog(id){
+      try{
+        api.delete(`backlog/delete/${id}`).then(res=>{
+          setBacklogs(backlogs.filter((b)=>{
+            return b.backlogId !== id
+          }))
+        })
+      }catch(e){
+        alert(e) //TODO colocar mensagem amigavel 
+      }
+    }
+
     if(!sprint){
         return (
           <p>carregando...</p>
@@ -138,7 +150,7 @@ export default function DetailsSprints(){
                                         <td data-label="descrição">{backlog.backlogStatus}</td>
                                         <td data-label="Associar backlog">{backlog.backlogResponsavel}</td>
                                         <td data-label="editar"></td>
-                                        <td data-label="excluir"><button className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
+                                        <td data-label="excluir"><button onClick={()=>{excluirBacklog(backlog.backlogId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
                             })

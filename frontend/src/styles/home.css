@@ -16,7 +16,7 @@ a{
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    width: 17%;
     font-size: 12px;
     background-color: #4f5f6f ;
     position: fixed;
@@ -71,7 +71,7 @@ a{
     font-weight:700;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 12px;
+    text-align: center;
 }
 
 #menu li.legend {
