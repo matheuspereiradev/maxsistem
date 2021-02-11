@@ -80,6 +80,20 @@ export default function DetailsSprints(){
       }
     }
 
+    function editarBacklog(backlog){
+      setDominio(backlog.backlogDominio);
+      setTitulo(backlog.backlogTitulo);
+      setChamado(backlog.backlogticket);
+      setResponsavel(backlog.backlogResponsavel);
+      setPontos(backlog.backlogPtTrabalho);
+      setValor(backlog.backlogValor);
+      setTempo(backlog.backlogMnEstimando);
+      setDescricao(backlog.backlogObs);
+      setRequisitos(backlog.backlogRequisitos);
+
+      setisOpen(true);
+    }
+
     function excluirBacklog(id){
       try{
         api.delete(`backlog/delete/${id}`).then(res=>{
@@ -147,9 +161,9 @@ export default function DetailsSprints(){
                                         <td data-label="Cód">{backlog.backlogId}</td>
                                         <td data-label="Titulo">{backlog.backlogTitulo}</td>
                                         <td data-label="Tempo estimado">{datas.getHoursByMinuts(backlog.backlogMnEstimando)}</td>
-                                        <td data-label="descrição">{backlog.backlogStatus}</td>
+                                        <td data-label="status">{backlog.backlogStatus}</td>
                                         <td data-label="Associar backlog">{backlog.backlogResponsavel}</td>
-                                        <td data-label="editar"></td>
+                                        <td data-label="editar"><button onClick={()=>{editarBacklog(backlog)}} className="btn btn-block btn-sm green-button"><FaTrash/> Editar</button></td>
                                         <td data-label="excluir"><button onClick={()=>{excluirBacklog(backlog.backlogId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
