@@ -12,7 +12,6 @@ const columnsBacklog = [
     ,'b.mnEstimados as backlogMnEstimando   '
     ,'b.dsScripts as backlogScripts         '
     ,'b.dsForms as backlogForms             ' 
-    ,'b.dsTestes as backlogTestes           ' 
     ,'b.dsRequisitos as backlogRequisitos   '
     ,'b.idSprint as backlogIdSprint         '
     ,'b.dtConcluido as backlogDtConcluido   ' 
@@ -45,5 +44,19 @@ module.exports = {
             .where(filtro);
 
         return backlogList;
-    }
+    },
+
+    async registerBacklog(backlog){
+        await mySQL('backlog').insert(backlog);
+        return {"success_mensage":"success insert"};
+    },
+
+    async deleteBacklog(id){
+        const backlog = {
+            "dtExcluiu":dates.getFormatDateUS()
+        };
+        
+        await mySQL('backlog').where({"id":id}).update(backlog);
+        return {"success_mensage":"deleted with success"};
+    },
 };

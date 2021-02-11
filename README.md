@@ -8,7 +8,7 @@ a support system focused on software development process
 
 |->Project </br>
 |</br>
-|-->max  <the project front-end react></br>
+|-->frontend  <the project front-end react></br>
 |</br>
 |-->Docs <Documentation Use Cases, DER, Routes Docuemntation...></br>
 |</br>

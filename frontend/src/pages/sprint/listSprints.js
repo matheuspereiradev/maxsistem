@@ -58,14 +58,14 @@ export default function ListSprints(){
                     {sprints && (
                             sprints.map((sprint)=>{
                               return(
-                                <tr key={sprint.id}>
-                                        <td data-label="Cód">{sprint.id}</td>
-                                        <td data-label="Titulo">{sprint.titulo}</td>
-                                        <td data-label="descrição">{datas.formatDateBR(sprint.inicio)} <br/> {datas.formatDateBR(sprint.terminoPrevisto)}</td>
+                                <tr key={sprint.sprintId}>
+                                        <td data-label="Cód">{sprint.sprintId}</td>
+                                        <td data-label="Titulo">{sprint.sprintTitulo}</td>
+                                        <td data-label="descrição">{datas.formatDateBR(sprint.sprintInicio)} <br/> {datas.formatDateBR(sprint.sprintFimEsperado)}</td>
                                         <td data-label="descrição">{sprint.status}</td>
-                                        <td data-label="Associar backlog"><button className="btn btn-block btn-sm yellow-button"><FaCog/> Configurar</button></td>
-                                        <td data-label="editar"><Link to={`sprint/editar/${sprint.id}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
-                                        <td data-label="excluir"><button onClick={()=>{excluirSprint(sprint.id)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
+                                        <td data-label="Associar backlog"><Link to={`sprint/detalhes/${sprint.sprintId}`}><button className="btn btn-block btn-sm yellow-button"><FaCog/> Configurar</button></Link></td>
+                                        <td data-label="editar"><Link to={`sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
+                                        <td data-label="excluir"><button onClick={()=>{excluirSprint(sprint.sprintId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
                             })
@@ -77,7 +77,6 @@ export default function ListSprints(){
                     </table> 
                     </div>
                 </div>
-                <Footer/>
               </div>
         </div>           
               
