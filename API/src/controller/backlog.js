@@ -27,6 +27,17 @@ module.exports = {
         }catch(error){
             next(error)
         }
-    }
+    },
+
+    async deleteBacklog(req,res,next){
+        try {
+            const {id}=req.params;
+            const response= await modelBacklog.deleteBacklog(id);
+            return res.json(response);
+
+        } catch (error) {
+            next(error)
+        }
+    },
 
 }

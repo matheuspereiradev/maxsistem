@@ -49,5 +49,14 @@ module.exports = {
     async registerBacklog(backlog){
         await mySQL('backlog').insert(backlog);
         return {"success_mensage":"success insert"};
-    }
+    },
+
+    async deleteBacklog(id){
+        const backlog = {
+            "dtExcluiu":dates.getFormatDateUS()
+        };
+        
+        await mySQL('backlog').where({"id":id}).update(backlog);
+        return {"success_mensage":"deleted with success"};
+    },
 };

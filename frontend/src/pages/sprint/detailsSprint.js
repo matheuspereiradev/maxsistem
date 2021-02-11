@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import '../../styles/home.css'
 import TopBar from '../../components/topBarAdmin'
 import LeftMenu from '../../components/leftMenuAdmin'
-import Footer from '../../components/footer'
 import api from '../../services/api'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import datas from '../../utils/dates'
-import { FaArrowLeft, FaCog, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
+import { FaArrowLeft, FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 import Modal from 'react-modal'
 Modal.setAppElement('#root');
 
@@ -33,8 +32,8 @@ export default function DetailsSprints(){
     useEffect(()=>{ 
       api.get(`sprint/details/${params.id}`).then(s=>{
         setSprint(s.data[0]);
-        if (sprint.backlogs !== undefined)
-          setBacklogs(sprint.backlogs)
+        if (s.data[0].backlogs !== undefined)
+          setBacklogs(s.data[0].backlogs)
         else
           setBacklogs([])  
       })
