@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../styles/home.css'
 import TopBar from '../components/topBarAdmin'
 import LeftMenu from '../components/leftMenuAdmin'
-import { FaEdit, FaTrash } from 'react-icons/fa'
 
 export default function IndexPage(){
 
@@ -23,12 +22,12 @@ export default function IndexPage(){
                       <button className="btn red-button margin-left-5">clique</button>
                       <button className="btn blue-button margin-left-5">clique</button>
                       <button className="btn yellow-button margin-left-5">clique</button>
-                      <div class="dropdown margin-left-5">
-                        <button class="btn green-button dropbtn">Dropdown</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                      <div className="dropdown margin-left-5">
+                        <button className="btn green-button dropbtn">Dropdown</button>
+                        <div className="dropdown-content">
+                          <a href="404">Link 1</a>
+                          <a href="404">Link 2</a>
+                          <a href="404">Link 3</a>
                         </div>
                       </div> 
                       <br/>

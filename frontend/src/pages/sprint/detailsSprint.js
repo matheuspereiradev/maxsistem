@@ -16,6 +16,7 @@ export default function DetailsSprints(){
     const {goBack} = useHistory();
 
     const [sprint,setSprint]=useState({});
+    const [backlogs,setBacklogs]=useState([]);
     const [isOpen,setisOpen]=useState(false);
     const [users,setUsers]=useState([]);
 
@@ -30,8 +31,12 @@ export default function DetailsSprints(){
     const [descricao,setDescricao]=useState('');
 
     useEffect(()=>{ 
-      api.get(`sprint/details/${params.id}`).then(sprint=>{
-        setSprint(sprint.data[0]);
+      api.get(`sprint/details/${params.id}`).then(s=>{
+        setSprint(s.data[0]);
+        if (sprint.backlogs !== undefined)
+          setBacklogs(sprint.backlogs)
+        else
+          setBacklogs([])  
       })
 
       api.get('user/all').then(user=>{
@@ -124,8 +129,8 @@ export default function DetailsSprints(){
                         </tr>
                     </thead>
                     <tbody>
-                    {sprint.backlogs && (
-                            sprint.backlogs.map((backlog)=>{
+                    {backlogs && (
+                            backlogs.map((backlog)=>{
                               return(
                                 <tr key={backlog.backlogId}>
                                         <td data-label="Cód">{backlog.backlogId}</td>
