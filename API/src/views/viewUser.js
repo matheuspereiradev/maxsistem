@@ -10,9 +10,15 @@ module.exports={
             userEmail:user.userEmail,
             userTelefone:user.userTelefone,
             userIsClient:isCliente,
-            userIsManager:isManager,
-            userCompany:user.userCompany,
-            userSector:user.userSector,
+            company:{
+                userCompany:user.userCompany,
+                userIdCompany:user.userIdCompany
+            },
+            sector:{
+                userIdSector:user.userIdSector,
+                userSector:user.userSector,
+            },
+            userIsManager:isManager
         }
     },
 
