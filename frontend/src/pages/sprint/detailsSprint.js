@@ -81,9 +81,7 @@ export default function DetailsSprints(){
     function excluirSprint(id){
       try{
         api.delete(`sprint/delete/${id}`).then(res=>{
-          setSprint(sprint.filter((sprints)=>{
-            return sprint.id !== id
-          }))
+          goBack()
         })
       }catch(e){
         alert(e) //TODO colocar mensagem amigavel 
@@ -95,7 +93,7 @@ export default function DetailsSprints(){
       setDominio(backlog.backlogDominio);
       setTitulo(backlog.backlogTitulo);
       setChamado(backlog.backlogticket);
-      setResponsavel(backlog.backlogResponsavel);
+      setResponsavel(backlog.backlogIdResponsavel);
       setPontos(backlog.backlogPtTrabalho);
       setValor(backlog.backlogValor);
       setTempo(backlog.backlogMnEstimando);
@@ -143,7 +141,8 @@ export default function DetailsSprints(){
                             </div>
                             <div className="col-30">
                                 <label>Operações:</label>
-                                <Link to={`sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link>
+                                <Link to={`/sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link>
+                                <button onClick={()=>{excluirSprint(sprint.sprintId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button>
                             </div>
                           </div> 
                           <br/> <br/> 

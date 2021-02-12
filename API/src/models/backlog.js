@@ -22,6 +22,7 @@ const columnsBacklog = [
     ,'b.dsLink as backlogLink               '
     ,'b.idTicket as backlogticket           '
     ,'sb.nmStatusBacklog as backlogStatus   '
+    ,'b.idResponsavel as backlogIdResponsavel'
     ,'u.nmUsuario as backlogResponsavel     '    
 ];
 
