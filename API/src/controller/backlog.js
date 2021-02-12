@@ -40,4 +40,29 @@ module.exports = {
         }
     },
 
+    async editBacklog(req,res,next){
+        try{
+            const {id}=req.params;
+            const {titulo,descricao,dominio,chamado,responsavel,pontos,valor,tempo,requisitos,sprint} = req.body;
+            const backlog = {
+                "id":id,
+                "dsTitulo":dominio,
+                "dsDominio":titulo,
+                "idTicket":chamado,
+                "idResponsavel":responsavel,
+                "ptTrabalho":pontos,
+                "ptValor":valor,
+                "mnEstimados":tempo,
+                "dsObservacao":descricao,
+                "dsRequisitos":requisitos,
+                "idSprint":sprint
+            };
+            const response = await modelBacklog.editBacklog(backlog);
+
+            return res.json(response);
+        }catch(error){
+            next(error)
+        } 
+    }
+
 }

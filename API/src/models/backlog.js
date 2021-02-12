@@ -59,4 +59,9 @@ module.exports = {
         await mySQL('backlog').where({"id":id}).update(backlog);
         return {"success_mensage":"deleted with success"};
     },
+
+    async editBacklog(backlog){
+        await mySQL('backlog').where({"id":backlog.id}).update(backlog);
+        return {"success_mensage":"sucess updated"};
+    }
 };

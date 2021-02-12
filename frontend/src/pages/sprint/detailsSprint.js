@@ -62,15 +62,17 @@ export default function DetailsSprints(){
           "sprint":params.id
         }
 
-        if((idBacklog !== undefined) || (idBacklog !== null)){
-          const res = await api.put(`/backlog/edit/${idBacklog}`,data);
-          if (res.status === 200){
-            alert('editado com sucesso');
-          } 
-        }else{
+        if((idBacklog === undefined) || (idBacklog === null)){
           const res = await api.post('/backlog/register',data);
           if (res.status === 200){
             alert('cadastrado com sucesso');
+            setisOpen(false);
+          } 
+        }else{
+          const res = await api.put(`/backlog/edit/${idBacklog}`,data);
+          if (res.status === 200){
+            alert('editado com sucesso');
+            setisOpen(false);
           } 
         }
           
@@ -172,7 +174,7 @@ export default function DetailsSprints(){
                                         <td data-label="Tempo estimado">{datas.getHoursByMinuts(backlog.backlogMnEstimando)}</td>
                                         <td data-label="status">{backlog.backlogStatus}</td>
                                         <td data-label="Associar backlog">{backlog.backlogResponsavel}</td>
-                                        <td data-label="editar"><button onClick={()=>{editarBacklog(backlog)}} className="btn btn-block btn-sm green-button"><FaTrash/> Editar</button></td>
+                                        <td data-label="editar"><button onClick={()=>{editarBacklog(backlog)}} className="btn btn-block btn-sm green-button"><FaEdit/> Editar</button></td>
                                         <td data-label="excluir"><button onClick={()=>{excluirBacklog(backlog.backlogId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
