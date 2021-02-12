@@ -9,6 +9,8 @@ const columnsUser = [
      ,'u.flCliente as userIsClient'
      ,'u.flClienteGestor as userIsManager'
      ,'e.nmEmpresa as userCompany'
+     ,'e.id as userIdCompany'
+     ,'s.id as userIdSector'
      ,'s.nmSetor as userSector'
 ];
 
