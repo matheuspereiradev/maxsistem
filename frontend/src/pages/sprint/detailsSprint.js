@@ -19,6 +19,7 @@ export default function DetailsSprints(){
     const [isOpen,setisOpen]=useState(false);
     const [users,setUsers]=useState([]);
 
+    const [idBacklog,setIdBacklog]=useState();
     const [dominio,setDominio]=useState('');
     const [titulo,setTitulo]=useState('');
     const [chamado,setChamado]=useState('');
@@ -47,7 +48,7 @@ export default function DetailsSprints(){
   
     async function handleSubmit(event) {
       event.preventDefault();
-        console.log('oi')
+        
         const data = {
           "dominio":dominio,
           "titulo":titulo,
@@ -61,11 +62,18 @@ export default function DetailsSprints(){
           "sprint":params.id
         }
 
-        console.log(data)
-        const res = await api.post('/backlog/register',data);
-        if (res.status === 200){
-          alert('cadastrado com sucesso');
-        }   
+        if((idBacklog !== undefined) || (idBacklog !== null)){
+          const res = await api.put(`/backlog/edit/${idBacklog}`,data);
+          if (res.status === 200){
+            alert('editado com sucesso');
+          } 
+        }else{
+          const res = await api.post('/backlog/register',data);
+          if (res.status === 200){
+            alert('cadastrado com sucesso');
+          } 
+        }
+          
     }
 
     function excluirSprint(id){
@@ -81,6 +89,7 @@ export default function DetailsSprints(){
     }
 
     function editarBacklog(backlog){
+      setIdBacklog(backlog.backlogId)
       setDominio(backlog.backlogDominio);
       setTitulo(backlog.backlogTitulo);
       setChamado(backlog.backlogticket);
@@ -141,7 +150,7 @@ export default function DetailsSprints(){
                           <br/><br/>
                           
                     <table>
-                    <caption>Backlogs <button onClick={()=>{setisOpen(true)}} className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></caption>
+                    <caption>Backlogs <button onClick={()=>{setisOpen(true); setIdBacklog(undefined)}} className="btn green-button margin-left-5"><FaPlus size={12}/> Novo backlog</button></caption>
                     <thead>
                         <tr>
                         <th scope="col">Cód</th>
