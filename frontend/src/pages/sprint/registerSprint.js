@@ -5,7 +5,7 @@ import LeftMenu from '../../components/leftMenuAdmin'
 import Footer from '../../components/footer'
 import api from '../../services/api'
 import { useHistory, useParams } from 'react-router-dom'
-import { FaSave } from 'react-icons/fa'
+import { FaArrowLeft, FaSave } from 'react-icons/fa'
 import dates from '../../utils/dates'
 
 export default function RegisterSprint(){
@@ -66,6 +66,7 @@ export default function RegisterSprint(){
               <div className="main">
                   <div className="content">
                     <div className="content-body">
+                    <button className="btn transparent-button" onClick={()=>{goBack()}}><FaArrowLeft size={12}/> Voltar</button>
                       <form onSubmit={handleSubmit}>
                           <h1>Cadastro de sprints</h1>
                           <hr/>
