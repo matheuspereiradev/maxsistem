@@ -141,8 +141,14 @@ export default function DetailsSprints(){
                             </div>
                             <div className="col-30">
                                 <label>Operações:</label>
-                                <Link to={`/sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link>
-                                <button onClick={()=>{excluirSprint(sprint.sprintId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button>
+                                <div className="row">
+                                  <div className="col-50">
+                                    <Link to={`/sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link>
+                                  </div>
+                                  <div className="col-50">
+                                    <button onClick={()=>{excluirSprint(sprint.sprintId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button>
+                                  </div>
+                                </div>
                             </div>
                           </div> 
                           <br/> <br/> 
@@ -156,9 +162,9 @@ export default function DetailsSprints(){
                         <tr>
                         <th scope="col">Cód</th>
                         <th scope="col">Titulo</th>
-                        <th scope="col">Inicio/Fim</th>
+                        <th scope="col">Tempo estimado</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Novo Backlog</th>
+                        <th scope="col">Responsável</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
                         </tr>
@@ -172,7 +178,7 @@ export default function DetailsSprints(){
                                         <td data-label="Titulo">{backlog.backlogTitulo}</td>
                                         <td data-label="Tempo estimado">{datas.getHoursByMinuts(backlog.backlogMnEstimando)}</td>
                                         <td data-label="status">{backlog.backlogStatus}</td>
-                                        <td data-label="Associar backlog">{backlog.backlogResponsavel}</td>
+                                        <td data-label="Responsável">{backlog.backlogResponsavel}</td>
                                         <td data-label="editar"><button onClick={()=>{editarBacklog(backlog)}} className="btn btn-block btn-sm green-button"><FaEdit/> Editar</button></td>
                                         <td data-label="excluir"><button onClick={()=>{excluirBacklog(backlog.backlogId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
