@@ -4,6 +4,7 @@ import index from './pages/index'
 import sprintList from './pages/sprint/listSprints'
 import sprintRegister from './pages/sprint/registerSprint'
 import sprintDetails from './pages/sprint/detailsSprint'
+import userList from './pages/usuario/listUsuario'
 
 function Routes(){
     return(
@@ -15,6 +16,7 @@ function Routes(){
                 <Route path="/sprint/cadastrar" component={sprintRegister}/>
                 <Route path="/sprint/editar/:id" component={sprintRegister}/>
                 <Route path="/sprint/detalhes/:id" component={sprintDetails}/>
+                <Route path="/usuario" exact component={userList}/>
                 
             </Switch>
         </BrowserRouter>

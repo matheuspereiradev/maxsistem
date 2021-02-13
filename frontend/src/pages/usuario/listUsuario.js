@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react'
 import '../../styles/home.css'
 import TopBar from '../../components/topBarAdmin'
 import LeftMenu from '../../components/leftMenuAdmin'
-import { FaCog, FaEdit, FaPlus, FaThumbtack, FaTrash } from 'react-icons/fa'
+import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 import api from '../../services/api'
 import { Link } from 'react-router-dom'
-import datas from '../../utils/dates'
 
 export default function ListUsers(){
 
     const [users,setUsers]=useState([])
 
     useEffect(()=>{
-      api.get('sprint/all').then(sprint=>{
-          setSprints(sprint.data);
+      api.get('user/all').then(usr=>{
+          setUsers(usr.data);
         })
     },[])
   
@@ -30,30 +29,30 @@ export default function ListUsers(){
                     <div className="content-body">
                       
                     <table>
-                    <caption>Sprints <Link to="/sprint/cadastrar"><button className="btn green-button margin-left-5"><FaPlus size={12}/> Nova sprint</button></Link></caption>
+                    <caption>Usuários <Link to="/usuarios/cadastrar"><button className="btn green-button margin-left-5"><FaPlus size={12}/> Novo usuário</button></Link></caption>
                     <thead>
                         <tr>
-                        <th scope="col">Cód</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Inicio/Fim</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Novo Backlog</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Setor</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {sprints && (
-                            sprints.map((sprint)=>{
+                    {users && (
+                            users.map((usr)=>{
                               return(
-                                <tr key={sprint.sprintId}>
-                                        <td data-label="Cód">{sprint.sprintId}</td>
-                                        <td data-label="Titulo">{sprint.sprintTitulo}</td>
-                                        <td data-label="descrição">{datas.formatDateBR(sprint.sprintInicio)} <br/> {datas.formatDateBR(sprint.sprintFimEsperado)}</td>
-                                        <td data-label="descrição">{sprint.status}</td>
-                                        <td data-label="Associar backlog"><Link to={`sprint/detalhes/${sprint.sprintId}`}><button className="btn btn-block btn-sm yellow-button"><FaCog/> Configurar</button></Link></td>
-                                        <td data-label="editar"><Link to={`sprint/editar/${sprint.sprintId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
-                                        <td data-label="excluir"><button onClick={()=>{excluirSprint(sprint.sprintId)}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
+                                <tr key={usr.userId}>
+                                        <td data-label="Nome">{usr.userName}</td>
+                                        <td data-label="Telefone">{usr.userTelefone}</td>
+                                        <td data-label="Tipo">{usr.userIsClient}</td>
+                                        <td data-label="Empresa">{usr.company.userCompany}</td>
+                                        <td data-label="Setor">{usr.sector.userSector}</td>
+                                        <td data-label="editar"><Link to={`sprint/editar/${usr.userId}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
+                                        <td data-label="excluir"><button onClick={()=>{}} className="btn btn-block btn-sm red-button"><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
                             })
