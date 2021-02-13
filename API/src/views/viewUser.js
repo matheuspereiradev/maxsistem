@@ -4,7 +4,6 @@ module.exports={
         const isManager=!!user.userIsManager
         
         return {        
-
             userId:user.userID,
             userName:user.userName,
             userEmail:user.userEmail,
