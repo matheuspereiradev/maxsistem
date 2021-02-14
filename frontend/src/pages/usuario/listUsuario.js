@@ -30,7 +30,7 @@ export default function ListUsers(){
                     <div className="content-body">
                       
                     <table>
-                    <caption>Usuários <Link to="/usuarios/cadastrar"><button className="btn green-button margin-left-5"><FaPlus size={12}/> Novo usuário</button></Link></caption>
+                    <caption>Usuários <Link to="/usuario/cadastrar"><button className="btn green-button margin-left-5"><FaPlus size={12}/> Novo usuário</button></Link></caption>
                     <thead>
                         <tr>
                         <th scope="col">Nome</th>
