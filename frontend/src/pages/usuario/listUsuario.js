@@ -12,7 +12,6 @@ export default function ListUsers(){
 
     useEffect(()=>{
       api.get('user/all').then(usr=>{
-        console.log(usr.data)
           setUsers(usr.data);
         })
     },[])
