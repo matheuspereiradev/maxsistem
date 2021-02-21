@@ -14,6 +14,7 @@ export default function RegisterUsuario(){
 
     const [nome,setNome]=useState('');
     const [empresa,setEmpresa] = useState(''); 
+    const [login,setLogin] = useState('');
     const [setor,setSetor] = useState(''); 
     const [email,setEmail] = useState('');  
     const [telefone,setTelefone] = useState(''); 
@@ -34,6 +35,15 @@ export default function RegisterUsuario(){
       }
       
     },[params.id])
+
+    useEffect(()=>{ 
+      
+      api.get('user/all').then(user=>{
+        /*setUsers(user.data.filter((elemnt)=>{
+          return elemnt.userIsClient === false;
+        }));*/
+      }) 
+    },[])
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -57,6 +67,42 @@ export default function RegisterUsuario(){
                         <label>Nome:</label>
                         <input maxLength="45" required onChange={event => { setNome(event.target.value) }} value={nome} className="input-text" type="text"/>
                           
+                        <div className="row">
+                            <div className="col-50">
+                                <label>Login</label><br/>
+                                <input onChange={event => { setLogin(event.target.value) }} className="input-text" type="text" value={login}></input>
+                            </div>
+                            <div className="col-50 margin-left-5">
+                                <label>Email</label><br/>
+                                <input onChange={event => { setEmail(event.target.value) }} value={email} className="input-text" type="text"></input>
+                            </div>
+                        </div>  
+                        <div className="row">
+                            <div className="col-50">
+                                <label>Telefone</label><br/>
+                                <input onChange={event => { setTelefone(event.target.value) }} className="input-text" type="text" value={telefone}></input>
+                            </div>
+                            <div className="col-50 margin-left-5">
+                                <label>Cliente:</label><br/>
+                                <label className="switch">
+                                  <input type="checkbox"/>
+                                  <span className="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-50">
+                                <label>Empresa</label><br/>
+                                <input onChange={event => { setTelefone(event.target.value) }} className="input-text" type="text" value={telefone}></input>
+                            </div>
+                            <div className="col-50 margin-left-5">
+                                <label>Cliente:</label><br/>
+                                <label className="switch">
+                                  <input type="checkbox"/>
+                                  <span className="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
                         <br/><br/>
                         <button type="submit"className="btn btn-block green-button"><FaSave/> Salvar</button>
                       </form>

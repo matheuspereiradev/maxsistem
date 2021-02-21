@@ -69,8 +69,6 @@ export default function RegisterSprint(){
                       <form onSubmit={handleSubmit}>
                           <h1>Cadastro de sprints</h1>
                           <hr/>
-                          
-                          
                             <label>Titulo:</label>
                             <input maxLength="45" required onChange={event => { setTitulo(event.target.value) }} value={titulo} className="input-text" type="text"/>
                           
