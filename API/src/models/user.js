@@ -4,6 +4,7 @@ const mySQL = require('./database/config');
 const columnsUser = [
       'u.id as userID'
      ,'u.nmUsuario as userName' 
+     ,'u.nmLogin as userLogin'
      ,'u.dsEmail as userEmail'
      ,'u.cdTelefone as userTelefone'
      ,'u.flCliente as userIsClient'

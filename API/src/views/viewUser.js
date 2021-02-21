@@ -6,6 +6,7 @@ module.exports={
         return {        
             userId:user.userID,
             userName:user.userName,
+            userLogin:user.userLogin,
             userEmail:user.userEmail,
             userTelefone:user.userTelefone,
             userIsClient:isCliente,
