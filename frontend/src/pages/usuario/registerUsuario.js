@@ -38,10 +38,8 @@ export default function RegisterUsuario(){
 
     useEffect(()=>{ 
       
-      api.get('user/all').then(user=>{
-        /*setUsers(user.data.filter((elemnt)=>{
-          return elemnt.userIsClient === false;
-        }));*/
+      api.get('company/all').then(company=>{
+        setEmpresas(company.data);
       }) 
     },[])
 
@@ -83,26 +81,18 @@ export default function RegisterUsuario(){
                                 <input onChange={event => { setTelefone(event.target.value) }} className="input-text" type="text" value={telefone}></input>
                             </div>
                             <div className="col-50 margin-left-5">
-                                <label>Cliente:</label><br/>
-                                <label className="switch">
-                                  <input type="checkbox"/>
-                                  <span className="slider round"></span>
-                                </label>
+                              <label>Empresa:</label>
+                              <select className="select-box" id="empresa" value={empresa} onChange={event=>{ setEmpresa(event.target.value)}}>
+                                    <option value="0">Seleciona a empresa</option>
+                                    {empresas && (empresas.map(emp=>{
+                                      return(
+                                        <option key={emp.companyId} value={emp.companyId}>{emp.companyName}</option>
+                                      )
+                                    }))}
+                              </select>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-50">
-                                <label>Empresa</label><br/>
-                                <input onChange={event => { setTelefone(event.target.value) }} className="input-text" type="text" value={telefone}></input>
-                            </div>
-                            <div className="col-50 margin-left-5">
-                                <label>Cliente:</label><br/>
-                                <label className="switch">
-                                  <input type="checkbox"/>
-                                  <span className="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
+                        
                         <br/><br/>
                         <button type="submit"className="btn btn-block green-button"><FaSave/> Salvar</button>
                       </form>
