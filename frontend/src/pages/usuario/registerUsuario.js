@@ -48,7 +48,22 @@ export default function RegisterUsuario(){
 
     async function handleSubmit(event) {
         event.preventDefault();
-        
+        const data = {
+          "nome":nome,
+          "login":login,
+          "telefone":telefone,
+          "email":email,
+          "empresa":empresa,
+          "setor":setor
+        }
+
+        if (params.id === undefined){
+          const res = await api.post('/user/register',data);
+          if (res.status === 200){
+              alert('cadastrado com sucesso');
+              goBack();
+          }
+      }
     }    
 
     return(

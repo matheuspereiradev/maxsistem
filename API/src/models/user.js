@@ -35,4 +35,8 @@ module.exports = {
         return userList;
     },
 
+    async registerUser(user){
+        await mySQL('usuarios').insert(user);
+        return {"success_mensage":"success insert"};
+    }
 };
