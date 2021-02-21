@@ -8,7 +8,7 @@ module.exports={
         }
     },
 
-    renderMany(users){
-        return users.map(this.render) //return sprints.map(s=>this.render(s))
+    renderMany(company){
+        return company.map(this.render) //return sprints.map(s=>this.render(s))
     }
 }
